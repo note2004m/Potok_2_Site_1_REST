@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +122,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = [BASE_DIR / 'static']
+import os
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -132,3 +136,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+JAZZMIN_SETTINGS = {
+    "site_title" : "ALG Store",
+    "site_header" : "ALG Store",
+    "welcome_sign" : "Добро пожаловать в панель администратора!",
+    "copyright" : "ALG Store © 2025",
+
+    "site_logo" : "images/logo.jpg",
+    "show_ui_builder" : True,
+}
